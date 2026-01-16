@@ -25,7 +25,8 @@ def test_initialize_domain(solver: SolveDiffusion2D):
     input_dy = 2.
     
     solver.initialize_domain(input_w, input_h, input_dx, input_dy)
-    assert solver.nx == expected_nx and solver.ny == expected_ny
+    assert solver.nx == expected_nx 
+    assert solver.ny == expected_ny
     
 
 def test_initialize_physical_parameters(solver: SolveDiffusion2D):
@@ -43,8 +44,10 @@ def test_initialize_physical_parameters(solver: SolveDiffusion2D):
 
     solver.initialize_physical_parameters(expected_D, expected_T_cold, expected_T_hot)
 
-    assert solver.T_cold == expected_T_cold and solver.T_hot == expected_T_hot and \
-        solver.D == expected_D and solver.dt == pytest.approx(expected_dt, rel=1e-12, abs=0.0)
+    assert solver.T_cold == expected_T_cold 
+    assert solver.T_hot == expected_T_hot
+    assert solver.D == expected_D
+    assert solver.dt == pytest.approx(expected_dt, rel=1e-12, abs=0.0)
 
 
 def test_set_initial_condition(solver: SolveDiffusion2D):
